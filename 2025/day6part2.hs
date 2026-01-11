@@ -10,7 +10,7 @@ getCols file
   | any not (map null file) = getCol file : getCols (map init file)
   | otherwise = []
 hasNums :: String -> Bool
-hasNums = any (\x -> x `elem` ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'])
+hasNums = any (\x -> x `elem` ['0'..'9'])
 
 getProblem :: [String] -> [Int]
 getProblem cols = map read $ map (filter (/= '.')) (takeWhile hasNums cols) :: [Int]
